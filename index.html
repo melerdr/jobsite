@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html"><img src="/img/logo.png" alt="logo" class="graficlogo"></a>
+    </div>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">home</a>
+            <a href="projects.html">projects</a>
+            <a href="blog.html">blog</a>
+            <a href="contact.html">contact</a>
+            <a href="about.html">about</a>
+            <a href="services.html">services</a>
+            <a href="location.html">location</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </nav>
+</header>
+<main>
+    
+    <div class="slider">
+        <div class="slider__wrapper">
+          <div class="slider__item">
+            <div style="height: 480px;"> <img src="/img/web.jpg" alt=""></div>
+          </div>
+          <div class="slider__item">
+            <div style="height: 480px;"> <img src="/img/web.jpg" alt=""></div>
+          </div>
+          <div class="slider__item">
+            <div style="height: 480px;"> <img src="/img/web.jpg" alt=""></div>
+          </div>
+          <div class="slider__item">
+            <div style="height: 480px;"> <img src="/img/web.jpg" alt=""></div>
+          </div>
+        </div>
+        <a class="slider__control slider__control_left" href="#" role="button"></a>
+        <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+      </div>
+    
+<section class="pix">
+  <div class="advantages_container">
+      <div class="advantages">
+          <div class="advantages_items">
+              <img src="/img/1.png" alt="1">
+              <H2>Lorem, ipsum.</H2>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At recusandae saepe nesciunt necessitatibus quibusdam reprehenderit.</p>
+          </div>
+
+        <div class="advantages_items">
+            <img src="/img/2.png" alt="2">
+            <H2>Lorem, ipsum.</H2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At recusandae saepe nesciunt necessitatibus quibusdam reprehenderit.</p>
+        </div>
+
+        <div class="advantages_items">
+            <img src="/img/3.png" alt="3">
+            <H2>Lorem, ipsum.</H2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At recusandae saepe nesciunt necessitatibus quibusdam reprehenderit.</p>
+        </div>
+
+        <div class="advantages_items">
+            <img src="/img/4.png" alt="4">
+            <H2>Lorem, ipsum.</H2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At recusandae saepe nesciunt necessitatibus quibusdam reprehenderit.</p>
+        </div>
+
+        <div class="advantages_items">
+            <img src="/img/5.png" alt="5">
+            <H2>Lorem, ipsum.</H2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At recusandae saepe nesciunt necessitatibus quibusdam reprehenderit.</p>
+        </div>
+
+        <div class="advantages_items">
+            <img src="/img/6.png" alt="6">
+            <H2>Lorem, ipsum.</H2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At recusandae saepe nesciunt necessitatibus quibusdam reprehenderit.</p>
+        </div>
+
+      </div>
+  </div>
+</section>
+</main>
+<footer>
+
+<div class="logo_2">
+    <div class="social">
+        <a href="#"><img src="/img/em.png" alt="em"></a>
+        <a href="#"><img src="/img/face.png" alt="face"></a>
+    </div>
+
+    <a href="index.html"><img src="/img/logo.png" alt="logo" class="graficlogo"></a>
+    <div class="social">
+        <a href="#"><img src="/img/inst.png" alt="inst"></a>
+        <a href="#"><img src="/img/pint.png" alt="pint"></a>
+    </div>
+</div>   
+<nav>
+    <a href="index.html">home</a>
+    <a href="projects.html">projects</a>
+    <a href="blog.html">blog</a>
+    <a href="contact.html">contact</a>
+    <a href="about.html">about</a>
+    <a href="services.html">services</a>
+    <a href="location.html">location</a>
+</nav>
+</footer>
+
+
+
+
+
+
+<script src="script.js"></script>
+<script>
+    'use strict';
+    var multiItemSlider = (function () {
+      return function (selector, config) {
+        var
+          _mainElement = document.querySelector(selector), // основный элемент блока
+          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
+          _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
+          _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
+          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
+          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+          _positionLeftItem = 0, // позиция левого активного элемента
+          _transform = 0, // значение транфсофрмации .slider_wrapper
+          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+          _items = []; // массив элементов
+        // наполнение массива _items
+        _sliderItems.forEach(function (item, index) {
+          _items.push({ item: item, position: index, transform: 0 });
+        });
+
+        var position = {
+          getMin: 0,
+          getMax: _items.length - 1,
+        }
+
+        var _transformItem = function (direction) {
+          if (direction === 'right') {
+            if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) >= position.getMax) {
+              return;
+            }
+            if (!_sliderControlLeft.classList.contains('slider__control_show')) {
+              _sliderControlLeft.classList.add('slider__control_show');
+            }
+            if (_sliderControlRight.classList.contains('slider__control_show') && (_positionLeftItem + _wrapperWidth / _itemWidth) >= position.getMax) {
+              _sliderControlRight.classList.remove('slider__control_show');
+            }
+            _positionLeftItem++;
+            _transform -= _step;
+          }
+          if (direction === 'left') {
+            if (_positionLeftItem <= position.getMin) {
+              return;
+            }
+            if (!_sliderControlRight.classList.contains('slider__control_show')) {
+              _sliderControlRight.classList.add('slider__control_show');
+            }
+            if (_sliderControlLeft.classList.contains('slider__control_show') && _positionLeftItem - 1 <= position.getMin) {
+              _sliderControlLeft.classList.remove('slider__control_show');
+            }
+            _positionLeftItem--;
+            _transform += _step;
+          }
+          _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+        }
+
+        // обработчик события click для кнопок "назад" и "вперед"
+        var _controlClick = function (e) {
+          if (e.target.classList.contains('slider__control')) {
+            e.preventDefault();
+            var direction = e.target.classList.contains('slider__control_right') ? 'right' : 'left';
+            _transformItem(direction);
+          }
+        };
+
+        var _setUpListeners = function () {
+          // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
+          _sliderControls.forEach(function (item) {
+            item.addEventListener('click', _controlClick);
+          });
+        }
+
+        // инициализация
+        _setUpListeners();
+
+        return {
+          right: function () { // метод right
+            _transformItem('right');
+          },
+          left: function () { // метод left
+            _transformItem('left');
+          }
+        }
+
+      }
+    }());
+
+    var slider = multiItemSlider('.slider')
+
+  </script>
+</body>
+</html>
